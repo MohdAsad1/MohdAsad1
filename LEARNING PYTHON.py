@@ -1,3 +1,6 @@
+Created by Guido van Rossum and released in 1991 
+Python is a popular, high-level, general-purpose programming language known for its simplicity and code readability.
+Variusly used in web deveblemnet, Data Science , Data Analysis, Automation, AIML
 """
 {The benefits of using python}
 
@@ -630,4 +633,5 @@ intro(Firstname="John", Lastname="Wood", Email="johnwood@nomail.com", Country="W
 list= [int,float,"asad",5,7,8,9,56,976,68,975,764,987]
 for i in list:
     print(i)
+
 """
