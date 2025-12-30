@@ -394,6 +394,44 @@ print(v)
 print(function2.__doc__)
 
 """
+===================================================================================================
+Decoraters in python 
+Modifies or extend the behavior of a function or class without changing its actual source code
+They wrap another function
+
+def my_decorator(func):
+   def wrapper():
+      print("Something is happening before the function is called")
+      func()
+      print("Something is happenign after the function is called")
+      return wrapper
+
+@my_decorator
+def say_hello():
+print ("Hello")
+say_hello()
+
+Output =
+Something is happening before the function is called
+Hello
+Something is happenign after the function is called
+
+======================================================================================================================
+#  What are Generators?
+
+A generator in Python is a special type of function that returns an iterator.
+Instead of returning all values at once (like a list), it yields values one at a time, only when requested.
+This makes generators memory-efficient and suitable for large datasets or infinite sequences.
+
+
+def count_down(num) :
+   while num > 0:
+      yield num                    #yeild values one at a time
+      num —= 1
+#using the generator
+for number in count_down(5) :
+   print (number)
+======================================================================================================================
 # 25 Try and Except Handling
 """
 print("Enter Number 1")
@@ -704,3 +742,4 @@ list= [int,float,"asad",5,7,8,9,56,976,68,975,764,987]
 for i in list:
     print(i)
 """
+
