@@ -431,6 +431,15 @@ def count_down(num) :
 #using the generator
 for number in count_down(5) :
    print (number)
+
+=====================================================================================================================
+# Lambda Functions
+Lambda functions in Python are anonymous functions defined using the lambda keyword. They are concise, single-expression functions often used for short-term tasks.
+lambda arguments: expression
+
+# Add 10 to a number
+add_ten = lambda x: x + 10
+print(add_ten(5)) # Output: 15
 ======================================================================================================================
 # 25 Try and Except Handling
 """
@@ -742,4 +751,5 @@ list= [int,float,"asad",5,7,8,9,56,976,68,975,764,987]
 for i in list:
     print(i)
 """
+
 
