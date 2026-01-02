@@ -1,5 +1,15 @@
-
 # OOPS [Object-oriented Programmings] [object,Class,*Inheritance,*Polymorphism,*Encapsulation,Abstraction]
+"""
+The main benefits of using OOP in Python include:-
+Improved Code Structure and Organization: OOP provides a clear structure to programs by grouping related data (attributes) and behaviors (methods) into self-contained units called objects.
+Code Reusability: Through the principle of inheritance, new classes can acquire properties and methods from existing "parent" classes, allowing developers to reuse common logic and reducing code duplication (the DRY principle - Don't Repeat Yourself).
+Easier Maintenance and Debugging: The self-contained nature of objects makes troubleshooting simpler. When an issue arises, developers can focus on the specific object or class where the problem is occurring, rather than sifting through the entire program, which streamlines maintenance and debugging.
+Scalability and Flexibility: OOP makes it easier to expand system functionalities independently. The use of concepts like polymorphism (allowing objects of different types to be treated as instances of a common type) enables developers to write code that can accommodate changing requirements without extensive modifications.
+Enhanced Security (Data Protection): Encapsulation allows for the bundling of data and methods within a class while restricting access to some components. This control over data access helps prevent unintended corruption and enhances program security.
+Modeling Real-World Concepts: OOP allows developers to model real-world entities and their interactions intuitively using classes and objects. This approach provides a more natural way of thinking about and solving problems, making the design process more straightforward.
+Increased Productivity: By leveraging reusable code libraries and focusing on individual, modular components, programmers can construct new programs more quickly. 
+"""
+
 # Functions In OOPS called as Methods
 # CLASS AND OBJECTS
 
@@ -10,6 +20,11 @@
 #  [  The object is an entity that has a state and behavior associated with it.
 #     It may be any real-world object like a mouse, keyboard, chair, table, pen, etc.
 #     Integers, strings, floating-point numbers, even arrays, and dictionaries, are all objects.  ]
+x
+1- Polymorphysm - one name multiple form
+2- encapsulation: hiding data and allowing controlled access
+3- inheritance: reuse properties/methods form a parent class
+4- abstraction: hiding unncessary details • I
 """
 class Employee:
 def __init__(self, name, age,salary):
@@ -309,4 +324,5 @@ for coin in coins:
     string="{} :- [ Colour:{} , Value:{} , Diameter:{} , Thickness:{} , Num_edge:{} , Mass:{} ]".format(*arguments)
     print(string)
 """
+
 
