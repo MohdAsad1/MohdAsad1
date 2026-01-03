@@ -1,0 +1,452 @@
+In Python, data structures are ways to store and organize data efficiently.
+
+A. Built-in Data Structures
+These are provided directly by Python and are highly optimized.
+
+a) List
+Ordered, mutable (can be changed), allows duplicates.
+Example:
+fruits = ["apple", "banana", "cherry"]
+fruits.append("orange")  # Add element
+print(fruits[1])         # Access element
+
+b) Tuple
+Ordered, immutable (cannot be changed), allows duplicates.
+Example:
+coordinates = (10, 20)
+print(coordinates[0])
+
+c) Set
+Unordered, mutable, no duplicates.
+Example:
+unique_numbers = {1, 2, 3, 3}
+print(unique_numbers)  # {1, 2, 3}
+
+d) Dictionary
+Key-value pairs, unordered (insertion order preserved in Python 3.7+).
+Example:
+student = {"name": "John", "age": 21}
+student["grade"] = "A"
+print(student["name"])
+
+B. Advanced / User-Defined Data Structures
+These can be implemented using Python classes or modules like collections and queue.
+
+1 - Stack
+LIFO (Last In, First Out)	list or collections.deque
+Pythonclass Stack:
+    def __init__(self):
+        self.items = []
+    def push(self, item):
+        self.items.append(item)
+    def pop(self):
+        return self.items.pop() if self.items else None
+
+2 - Queue	
+Deque	Double-ended queue	collections.deque
+FIFO (First In, First Out)	queue.Queue
+Pythonclass Queue:
+    def __init__(self):
+        self.items = []
+    def enqueue(self, item):
+        self.items.appendleft(item)
+    def dequeue(self):
+        return self.items.pop(0) if self.items else None
+
+3 - Linked List	
+Nodes connected via pointers	Custom class
+Nodes connected via references (pointers).
+Example: Dynamic memory allocation.
+Pythonclass Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+
+Heap	Priority queue	heapq
+Graph	Nodes & edges	dict or libraries like networkx
+Tree	Hierarchical structure	Custom class
+Example: Stack using list
+stack = []
+stack.append(10)  # Push
+stack.append(20)
+print(stack.pop())  # Pop -> 20
+
+Example: Queue using collections.deque
+from collections import deque
+
+queue = deque()
+queue.append(1)  # Enqueue
+queue.append(2)
+print(queue.popleft())  # Dequeue -> 1
+
+=================================================================================================
+4 - Tree
+
+Hierarchical structure with nodes and children.
+Example: File system representation.
+Got it ✅ — here’s a clear and brief explanation of Binary Tree and Binary Search Tree (BST) with examples.
+
+1. Binary Tree
+
+Definition:
+A tree where each node has at most 2 children — called left and right.
+Not ordered:
+No specific rule for how values are arranged.
+Use cases:
+Expression trees, hierarchical data representation.
+
+Example Structure:
+    10
+   /  \
+  5    20
+ / \   /
+3  7  15
+
+Python Example:
+Pythonclass Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+# Create a binary tree manually
+root = Node(10)
+root.left = Node(5)
+root.right = Node(20)
+root.left.left = Node(3)
+root.left.right = Node(7)
+root.right.left = Node(15)
+
+
+2. Binary Search Tree (BST)
+
+Definition:
+A special type of binary tree where:
+
+Left child < Parent
+Right child > Parent
+
+
+Ordered:
+This property makes searching faster — O(log n) on average.
+Use cases:
+Fast searching, sorting, and range queries.
+
+Example Structure:
+    10
+   /  \
+  5    15
+ / \     \
+3   7     20
+
+Python Example with Insert & Search:
+Pythonclass BSTNode:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+    # Insert a new value
+    def insert(self, value):
+        if value < self.data:
+            if self.left:
+                self.left.insert(value)
+            else:
+                self.left = BSTNode(value)
+        elif value > self.data:
+            if self.right:
+                self.right.insert(value)
+            else:
+                self.right = BSTNode(value)
+
+    # Search for a value
+    def search(self, value):
+        if value == self.data:
+            return True
+        elif value < self.data and self.left:
+            return self.left.search(value)
+        elif value > self.data and self.right:
+            return self.right.search(value)
+        return False
+
+# Example usage
+root = BSTNode(10)
+root.insert(5)
+root.insert(15)
+root.insert(3)
+root.insert(7)
+root.insert(20)
+
+print(root.search(7))   # True
+print(root.search(100)) # False
+
+
+=============================================================================================================================
+
+5 - Graph
+
+Definition:
+A graph is a collection of nodes (also called vertices) connected by edges.
+Types:
+
+A - Directed Graph (Digraph) – edges have direction.
+B - Undirected Graph – edges have no direction.
+C - Weighted Graph – edges have weights (costs).
+D - Unweighted Graph – all edges are equal.
+
+
+Representation in Python:
+
+Adjacency List (most common, memory efficient)
+Adjacency Matrix (2D array, faster edge lookup)
+
+Example: Graph using Adjacency List
+Python# Graph represented as an adjacency list
+graph = {
+    "A": ["B", "C"],
+    "B": ["A", "D", "E"],
+    "C": ["A", "F"],
+    "D": ["B"],
+    "E": ["B", "F"],
+    "F": ["C", "E"]
+}
+
+# Simple BFS traversal
+from collections import deque
+
+def bfs(start):
+    visited = set()
+    queue = deque([start])
+    while queue:
+        vertex = queue.popleft()
+        if vertex not in visited:
+            print(vertex, end=" ")
+            visited.add(vertex)
+            queue.extend(graph[vertex])
+
+print("BFS starting from A:")
+bfs("A")
+
+Output:
+BFS starting from A:
+A B C D E F
+
+
+Key Points
+
+Vertices: Data points (e.g., cities, users).
+Edges: Connections between vertices (e.g., roads, friendships).
+Applications:
+
+Social networks
+Maps & GPS routing
+Web page linking
+Network packet routing
+
+=====================================================================================================================
+Searching in Python 
+
+In Data Structures, searching refers to the process of finding the location of a specific element (called the target or key) in a collection of data such as an array, list, or tree.
+In Python, searching can be implemented in different ways depending on the data structure and whether the data is sorted.
+
+1. Linear Search
+
+Definition: Checks each element in the list sequentially until the target is found or the list ends.
+Works On: Both sorted and unsorted data.
+Time Complexity:
+
+Best case: O(1) (target is first element)
+Worst case: O(n) (target is last or not present)
+
+
+Space Complexity: O(1)
+
+Python Example:
+Pythondef linear_search(arr, target):
+    for index, value in enumerate(arr):
+        if value == target:
+            return index  # Return position if found
+    return -1  # Not found
+
+# Example usage
+data = [5, 3, 8, 4, 2]
+print(linear_search(data, 4))  # Output: 3
+
+
+2. Binary Search
+
+Definition: Repeatedly divides the sorted list into halves to locate the target.
+Works On: Only sorted data.
+Divide and conquer
+Time Complexity:
+
+Best case: O(1)
+Worst case: O(log n)
+
+
+Space Complexity: O(1) (iterative) or O(log n) (recursive)
+
+Python Example (Iterative):
+Pythondef binary_search(arr, target):
+    left, right = 0, len(arr) - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return -1
+
+# Example usage
+data = [2, 3, 4, 5, 8]  # Must be sorted
+print(binary_search(data, 4))  # Output: 2
+================================================================================================================
+# Sorting 
+
+Built-in Sorting Methods
+
+Python offers two primary built-in sorting methods: sorted() and list.sort(). 
+The sorted() function returns a new sorted list from any iterable, while list.sort() modifies the list in place and returns None.
+
+# Using sorted() function
+array = [5, 2, 3, 1, 4]
+sorted_array = sorted(array)
+print(sorted_array) # Output: [1, 2, 3, 4, 5]
+
+# Using list.sort() method
+array.sort()
+print(array) # Output: [1, 2, 3, 4, 5]
+
+ $ Key Sorting Algorithms
+=======================================================================================================================================
+1 -Bubble Sort
+
+Bubble Sort is a simple algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. 
+This process is repeated until the list is sorted. Its time complexity is O(n^2) in the average and worst cases.
+
+def bubble_sort(arr):
+  n = len(arr)
+  for i in range(n):
+    for j in range(0, n - i - 1):
+    if arr[j] > arr[j + 1]:
+    arr[j], arr[j + 1] = arr[j + 1], arr[j]
+  return arr
+
+# Example usage
+array = [2, 1, 10, 23]
+sorted_array = bubble_sort(array)
+print("Sorted array is:", sorted_array) # Output: [1, 2, 10, 23]
+===========================================================================================================================================
+2 - Insertion Sort
+
+Insertion Sort builds the final sorted array one item at a time. It is much more efficient in practice compared to Bubble Sort. 
+Its time complexity is O(n^2) in the average and worst cases, but O(n) in the best case.
+
+def insertion_sort(arr):
+  for i in range(1, len(arr)):
+  key = arr[i]
+  j = i - 1
+  while j >= 0 and key < arr[j]:
+    arr[j + 1] = arr[j]
+    j -= 1
+    arr[j + 1] = key
+  return arr
+
+# Example usage
+array = [7, 2, 1, 6]
+sorted_array = insertion_sort(array)
+print("Sorted array is:", sorted_array) # Output: [1, 2, 6, 7]
+========================================================================================================================
+3 - Merge Sort
+
+Merge Sort is an efficient, stable, and comparison-based sorting algorithm. 
+It uses the divide-and-conquer approach to split the list into halves, sort each half, and then merge them back together. 
+Its time complexity is O(n log n) in all cases.
+
+def merge_sort(arr):
+   if len(arr) < 2:
+       return arr
+   mid = len(arr) // 2
+   left = merge_sort(arr[:mid])
+   right = merge_sort(arr[mid:])
+   return merge(left, right)
+def merge(left, right):
+   result = []
+   i = j = 0
+   while i < len(left) and j < len(right):
+       if left[i] < right[j]:
+           result.append(left[i])
+           i += 1
+       else:
+           result.append(right[j])
+           j += 1
+   result.extend(left[i:])
+   result.extend(right[j:])
+   return result
+# Example usage
+array = [8, 2, 6, 4, 5]
+sorted_array = merge_sort(array)
+print("Sorted array is:", sorted_array) # Output: [2, 4, 5, 6, 8]
+================================================================================================================================
+4 - Quicksort
+
+Quicksort is another efficient sorting algorithm that uses the divide-and-conquer approach. 
+It selects a pivot element and partitions the array into two halves, recursively sorting each half. 
+Its average time complexity is O(n log n), but it can degrade to O(n^2) in the worst case.
+
+from random import randint
+def quicksort(arr):
+   if len(arr) < 2:
+       return arr
+   low, same, high = [], [], []
+   pivot = arr[randint(0, len(arr) - 1)]
+   for item in arr:
+       if item < pivot:
+           low.append(item)
+       elif item == pivot:
+           same.append(item)
+       else:
+           high.append(item)
+   return quicksort(low) + same + quicksort(high)
+# Example usage
+array = [8, 2, 6, 4, 5]
+sorted_array = quicksort(array)
+print("Sorted array is:", sorted_array) # Output: [2, 4, 5, 6, 8]
+===============================================================================================================================
+Selection Sort in Python
+
+Selection Sort is a simple and intuitive sorting algorithm 
+that works by repeatedly finding the minimum element from the unsorted portion of the list and placing it at the beginning. 
+This process is repeated until the entire list is sorted. 
+The algorithm maintains two subarrays in a given array: the sorted subarray and the unsorted subarray.
+
+def selection_sort(array):
+   size = len(array)
+   for i in range(size):
+       min_index = i
+       for j in range(i + 1, size):
+           if array[j] < array[min_index]:
+               min_index = j
+       array[i], array[min_index] = array[min_index], array[i]
+# Example usage
+arr = [-2, 45, 0, 11, -9, 88, -97, -202, 747]
+selection_sort(arr)
+print('The array after sorting in Ascending Order by selection sort is:')
+print(arr)
+===========================================================================================================================
+5 - Timsort
+
+Timsort is a hybrid sorting algorithm derived from merge sort and insertion sort. 
+It is the default sorting algorithm in Python's sorted() and list.sort(). 
+It is highly efficient for real-world data and has a time complexity of O(n log n) in the worst case.
+
+# Using Timsort via sorted() function
+array = [8, 2, 6, 4, 5]
+sorted_array = sorted(array)
+print("Sorted array is:", sorted_array) # Output: [2, 4, 5, 6, 8]
