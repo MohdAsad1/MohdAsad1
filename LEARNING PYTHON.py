@@ -756,3 +756,9 @@ for i in list:
 Python uses reference counting to track object references and automatically deallocated objects with zero references. It also has a
 garbage collector to handle cyclic references.
 
+----------------------------------------------------------------------------------------------------------------------
+13. How is memory management done in Python?
+Python manages memory using a private heap space where all objects and data structures are stored. 
+Programmers cannot directly access this private heap; it is managed by the Python interpreter. Additionally,
+Python has a built-in garbage collector that automatically recycles unused memory, 
+freeing it up and making it available for future use.
