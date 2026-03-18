@@ -751,5 +751,8 @@ list= [int,float,"asad",5,7,8,9,56,976,68,975,764,987]
 for i in list:
     print(i)
 """
-
+---------------------------------------------------------------------------------------------------------------------
+11. How does Python manage memory? Explain the role of reference counting and garbage collection ?
+Python uses reference counting to track object references and automatically deallocated objects with zero references. It also has a
+garbage collector to handle cyclic references.
 
