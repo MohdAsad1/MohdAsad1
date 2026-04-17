@@ -238,15 +238,20 @@ print(l)
 print(t)
 """
 
-control statements
-conditionäl - if, elif, else
-for while else suite
-nested
-infinite loop
-pass
-continue
-break
-assert return
+Control statements: Statements that control the flow of execution of a program.
+if: Executes a block of code when a condition is True.
+elif: Checks another condition if the previous if condition is False.
+else: Executes a block of code when all preceding conditions are False.
+for loop: Repeats a block of code for each item in a sequence.
+while loop: Repeats a block of code as long as a condition remains True.
+else with loop: Executes a block of code when the loop completes normally without break.
+nested loop: A loop placed inside another loop.
+infinite loop: A loop that runs forever because its condition never becomes False.
+pass: Acts as a placeholder statement that does nothing.
+continue: Skips the current iteration and moves to the next loop iteration.
+break: Terminates the loop immediately.
+assert: Checks a condition and raises an error if it is False.
+return: Sends a value back from a function and exits it.
 
 #IF ELSE
 
